@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="carMessageDao">
+
+	<resultMap type="com.cqupt.business.model.CarMessage" id="carMessageMap">
+		<id column="Code" jdbcType="INTEGER" property="code" />
+		<result column="TradeMark" jdbcType="VARCHAR" property="tradeMark" />
+		<result column="Drand" jdbcType="VARCHAR" property="drand" />
+		<result column="Style" jdbcType="VARCHAR" property="style" />
+		<result column="CarLoad" jdbcType="VARCHAR" property="carLoad" />
+		<result column="UsedTime" jdbcType="VARCHAR" property="usedTime" />
+		<result column="DriverName" jdbcType="VARCHAR" property="driverName" />
+		<result column="DriverTime" jdbcType="VARCHAR" property="driverTime" />
+		<result column="LicenceNumber" jdbcType="VARCHAR" property="licenceNumber" />
+		<result column="LicenceStyle" jdbcType="VARCHAR" property="licenceStyle" />
+		<result column="TranspotStyle" jdbcType="VARCHAR" property="transpotStyle" />
+		<result column="LinkMain" jdbcType="VARCHAR" property="linkMain" />
+		<result column="LinkPhone" jdbcType="VARCHAR" property="linkPhone" />
+		<result column="Remark" jdbcType="VARCHAR" property="linkPhone" />
+		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+		<result column="UserName" jdbcType="VARCHAR" property="username" />
+	</resultMap>
+
+	<select id="findAllCarMessage" resultMap="carMessageMap">
+		select * from
+		tb_carmessage
+	</select>
+	<select id="findCarMessageById" resultMap="carMessageMap"
+		parameterType="int">
+		select * from
+		tb_carmessage where id=#{id}
+	</select>
+
+	<insert id="addCarMessage" parameterMap="com.cqupt.business.model.CarMessage">
+		insert into
+		tb_carmessage(Code,TradeMark,Drand,Style,CarLoad,UsedTime,DriverName,DriverTime,LicenceNumber,LicenceStyle,TranspotStyle,LinkMain,LinkPhone,Remark,IssueDate,UserName)
+		values(#{carMessage.code},#{carMessage.tradeMark},#{carMessage.drand},#{carMessage.style},#{carMessage.carLoad},#{carMessage.usedTime},#{carMessage.driverTime})
+	</insert>
+
+	<delete id="deleteCarMessageById" parameterType="int">
+		delete from
+		tb_carmessage where id=#{id}
+	</delete>
+
+	<delete id="deleteCarMessageByIds" parameterType="java.util.List">
+		delete from tb_carmessage where id in(
+		<foreach collection="list" item="item" separator=",">
+			#{item}
+		</foreach>
+		)
+	</delete>
+</mapper>
