@@ -1,87 +1,62 @@
 package com.cqupt.business.service.impl;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
+import javax.annotation.Resource;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 import com.cqupt.business.dao.CarMessageDao;
 import com.cqupt.business.model.CarMessage;
 import com.cqupt.business.service.CarMessageService;
-import com.cqupt.dbConnection.DBAccess;
 
+@Service("carMessageService")
 public class CarMessageServiceImpl implements CarMessageService {
+	@Resource
 	private CarMessageDao carMessageDao;
+
+	@Resource(name = "carMessageDao")
+	public void setCarMessageDao(CarMessageDao carMessageDao) {
+		this.carMessageDao = carMessageDao;
+	}
 
 	@Override
 	public List<CarMessage> findAllCarMessage() {
-		SqlSession sqlSession = null;
-		List<CarMessage> cm = new ArrayList<CarMessage>();
-		try {
-
-			sqlSession = DBAccess.getSqlSession();
-			cm = sqlSession.selectList("carMessageDao.findAllCarMessage");
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (sqlSession != null)
-				sqlSession.close();
-		}
-		return cm;
+		return carMessageDao.findAllCarMessage();
 	}
 
 	@Override
 	public CarMessage findCarMessageById(int id) {
-		SqlSession sqlSession = null;
-		CarMessage cm = new CarMessage();
-		try {
-
-			sqlSession = DBAccess.getSqlSession();
-			cm = sqlSession.selectOne("carMessageDao.findCarMessageById", id);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (sqlSession != null)
-				sqlSession.close();
-		}
-		return cm;
+		return carMessageDao.findCarMessageById(id);
 	}
 
 	@Override
 	public boolean addCarMessage(CarMessage carMessage) {
-		SqlSession sqlSession = null;
-		int flag = 0;
-		try {
-			sqlSession = DBAccess.getSqlSession();
-			flag = sqlSession.insert("carMessageDao.addCarMessage", carMessage);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (sqlSession != null)
-				sqlSession.close();
-		}
-		return flag != 0;
+		return carMessageDao.addCarMessage(carMessage);
 	}
 
 	@Override
 	public boolean deleteCarMessage(int id) {
-		return false;
+		return carMessageDao.deleteCarMessage(id);
 	}
 
 	@Override
 	public boolean batchDeleteCarMessage(int id) {
-		return false;
+		return carMessageDao.batchDeleteCarMessage(id);
 	}
 
 	@Override
 	public boolean changeCarMessage(int id, CarMessage carMessage) {
-		return false;
+		return carMessageDao.changeCarMessage(id, carMessage);
 	}
 
 	public static void main(String[] args) {
-		CarMessageServiceImpl carMessageServiceImpl = new CarMessageServiceImpl();
-		carMessageServiceImpl.findAllCarMessage();
+		ApplicationContext ac = new ClassPathXmlApplicationContext(
+				"/applicationContext.xml");
+		CarMessageService carMessageService = (CarMessageService) ac
+				.getBean("carMessageService");
+		carMessageService.deleteCarMessage(1);
 	}
 
 }

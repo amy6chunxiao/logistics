@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="carMessageDao">
+<mapper namespace="com.cqupt.business.dao.CarMessageDao">
 
 	<resultMap type="com.cqupt.business.model.CarMessage" id="carMessageMap">
 		<id column="Code" jdbcType="INTEGER" property="code" />
@@ -29,18 +29,19 @@
 	<select id="findCarMessageById" resultMap="carMessageMap"
 		parameterType="int">
 		select * from
-		tb_carmessage where id=#{id}
+		tb_carmessage where Code=#{id}
 	</select>
 
-	<insert id="addCarMessage" parameterMap="com.cqupt.business.model.CarMessage">
+<!-- 	<insert id="addCarMessage" parameterMap="com.cqupt.business.model.CarMessage">
 		insert into
-		tb_carmessage(Code,TradeMark,Drand,Style,CarLoad,UsedTime,DriverName,DriverTime,LicenceNumber,LicenceStyle,TranspotStyle,LinkMain,LinkPhone,Remark,IssueDate,UserName)
-		values(#{carMessage.code},#{carMessage.tradeMark},#{carMessage.drand},#{carMessage.style},#{carMessage.carLoad},#{carMessage.usedTime},#{carMessage.driverTime})
-	</insert>
+		tb_carmessage(Code,TradeMark,Drand,Style,CarLoad,UsedTime,DriverName,DriverTime,
+		LicenceNumber,LicenceStyle,TranspotStyle,LinkMain,LinkPhone,Remark,IssueDate,UserName)
+		values(#{carMessage.code},#{carMessage.tradeMark},#{carMessage.drand},#{carMessage.style},#{carMessage.carLoad},#{carMessage.usedTime},#{carMessage.driverTime},#{carMessage.licenceNumber},#{carMessage.licenceStyle},#{},#{})
+	</insert> -->
 
 	<delete id="deleteCarMessageById" parameterType="int">
 		delete from
-		tb_carmessage where id=#{id}
+		tb_carmessage where Code=#{id}
 	</delete>
 
 	<delete id="deleteCarMessageByIds" parameterType="java.util.List">

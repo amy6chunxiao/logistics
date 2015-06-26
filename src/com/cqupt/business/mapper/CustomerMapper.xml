@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="cn.cqupt.business.dao.AlgorithmDao">
-
-
-	<select id="findAllCarMessage" resultMap="carMessageMap">
-		select * from
-		tb_carmessage
-	</select>
+<mapper namespace="customerDao">
 
 </mapper>

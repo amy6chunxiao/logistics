@@ -1,4 +1,4 @@
-package cn.edu.cqupt.rubic_business.servlet;
+package com.cqupt.business.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
