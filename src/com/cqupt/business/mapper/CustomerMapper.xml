@@ -16,14 +16,11 @@
 		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
 	</resultMap>
 
-	<select id="findAllCustomer" resultMap="customerMap">
-		select * from
-		tb_customar
-	</select>
-	<select id="findCustomerById" resultMap="customerMap"
+	<select id="checkCustomer" resultMap="customerMap"
 		parameterType="int">
 		select * from
-		tb_customar where ID=#{id}
+		tb_customar where Name=#{name} and
+		Password=#{password}
 	</select>
 
 	<insert id="addCustomer" parameterType="com.cqupt.business.model.Customer">
@@ -40,11 +37,4 @@
 		tb_customar where ID=#{id}
 	</delete>
 
-	<delete id="batchDeleteCustomer" parameterType="java.util.List">
-		delete from tb_customar where ID in(
-		<foreach collection="list" item="item" separator=",">
-			#{item}
-		</foreach>
-		)
-	</delete>
 </mapper>
