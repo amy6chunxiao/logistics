@@ -12,12 +12,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			HttpServletResponse response, Object handler) throws Exception {
 
 		String url = request.getRequestURI();
-		String urlName = url.substring(url.lastIndexOf("/")+1);
-		System.out.println(urlName);
+		String urlName = url.substring(url.lastIndexOf("/") + 1);
 		if (urlName.equals("login.action") || urlName.equals("login.jsp")
 				|| urlName.equals("index.jsp")) {
-			System.out.println("haha");
-			return false;
+			return true;
 		}
 		Customer customer = (Customer) request.getSession()
 				.getAttribute("user");

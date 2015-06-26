@@ -6,9 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.alibaba.fastjson.JSONObject;
 import com.cqupt.business.model.Customer;
 import com.cqupt.business.service.CustomerService;
 
@@ -29,29 +26,25 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/logout")
-	public @ResponseBody
-	JSONObject logout(HttpServletRequest request) {
+	public void logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("operation", "success");
-		return jsonObject;
 	}
 
 	@RequestMapping("/delete")
 	public void deleteUser() {
-
+		
 	}
 
 	@RequestMapping("/login")
 	public String checkCustomer(HttpServletRequest request) {
 		String name = request.getParameter("user-name");
-		String password = request.getParameter("pass-word");
+		String password = request.getParameter("user-password");
 		Customer customer = customerService.checkCustomer(name, password);
 		if (customer != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("user", customer);
+			session.setAttribute("username", name);
 		}
-		return "/start.jsp";
+		return "/index.jsp";
 	}
 }

@@ -48,13 +48,4 @@ public class CarMessageServiceImpl implements CarMessageService {
 	public boolean changeCarMessage(int id, CarMessage carMessage) {
 		return carMessageDao.changeCarMessage(id, carMessage) != 0;
 	}
-
-	// public static void main(String[] args) {
-	// ApplicationContext ac = new ClassPathXmlApplicationContext(
-	// "/WEB-INF/applicationContext.xml");
-	// CarMessageService carMessageService = (CarMessageService) ac
-	// .getBean("carMessageService");
-	// carMessageService.deleteCarMessage(1);
-	// }
-
 }
