@@ -23,7 +23,7 @@
 </head>
 
 <body>
-	<form action="carMessage/hello" method="post">
+	<form action="carMessage/add.action" method="post">
 		<h1>登 录</h1>
 		<p>
 			<label for="username" class="uname" data-icon="u"> 用户名 ：</label> <input
