@@ -14,7 +14,7 @@ public interface EnterpriseService {
 
 	public boolean deleteEnterprise(int id);
 
-	public boolean batchDeleteEnterprise(int id);
+	public boolean batchDeleteEnterprise(List<Integer> ids);
 
 	public boolean changeEnterprise(int id, Enterprise enterprise);
 }

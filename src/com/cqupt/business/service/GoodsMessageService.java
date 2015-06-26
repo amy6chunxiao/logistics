@@ -13,7 +13,7 @@ public interface GoodsMessageService {
 
 	public boolean deleteGoodsMessage(int id);
 
-	public boolean batchDeleteGoodsMessage(int id);
+	public boolean batchDeleteGoodsMessage(List<Integer> ids);
 
 	public boolean changeGoodsMessage(int id, GoodsMessage goodsMessage);
 }

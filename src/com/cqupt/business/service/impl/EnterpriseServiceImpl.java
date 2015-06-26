@@ -43,8 +43,8 @@ public class EnterpriseServiceImpl implements EnterpriseService {
 	}
 
 	@Override
-	public boolean batchDeleteEnterprise(int id) {
-		return enterpriseDao.batchDeleteEnterprise(id)!=0;
+	public boolean batchDeleteEnterprise(List<Integer> ids) {
+		return enterpriseDao.batchDeleteEnterprise(ids)!=0;
 	}
 
 	@Override

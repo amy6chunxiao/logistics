@@ -12,7 +12,7 @@ public interface GoodsMessageDao {
 
 	public int deleteGoodsMessage(int id);
 
-	public int batchDeleteGoodsMessage(int id);
+	public int batchDeleteGoodsMessage(List<Integer> ids);
 
 	public int changeGoodsMessage(int id, GoodsMessage goodsMessage);
 }

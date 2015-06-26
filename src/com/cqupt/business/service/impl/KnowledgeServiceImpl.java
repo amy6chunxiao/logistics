@@ -42,8 +42,8 @@ public class KnowledgeServiceImpl implements KnowledgeService {
 	}
 
 	@Override
-	public boolean batchDeleteKnowledge(int id) {
-		return knowledgeDao.batchDeleteKnowledge(id) != 0;
+	public boolean batchDeleteKnowledge(List<Integer> ids) {
+		return knowledgeDao.batchDeleteKnowledge(ids) != 0;
 	}
 
 	@Override

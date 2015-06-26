@@ -40,8 +40,8 @@ public class CarMessageServiceImpl implements CarMessageService {
 	}
 
 	@Override
-	public boolean batchDeleteCarMessage(int id) {
-		return carMessageDao.batchDeleteCarMessage(id) != 0;
+	public boolean batchDeleteCarMessage(List<Integer> ids) {
+		return carMessageDao.batchDeleteCarMessage(ids) != 0;
 	}
 
 	@Override

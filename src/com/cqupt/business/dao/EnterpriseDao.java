@@ -14,7 +14,7 @@ public interface EnterpriseDao {
 
 	public int deleteEnterprise(int id);
 
-	public int batchDeleteEnterprise(int id);
+	public int batchDeleteEnterprise(List<Integer> ids);
 
 	public int changeEnterprise(int id, Enterprise enterprise);
 }

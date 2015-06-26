@@ -42,8 +42,8 @@ public class GoodsMessageServiceImpl implements GoodsMessageService {
 	}
 
 	@Override
-	public boolean batchDeleteGoodsMessage(int id) {
-		return goodsMessageDao.batchDeleteGoodsMessage(id)!=0;
+	public boolean batchDeleteGoodsMessage(List<Integer> ids) {
+		return goodsMessageDao.batchDeleteGoodsMessage(ids)!=0;
 	}
 
 	@Override

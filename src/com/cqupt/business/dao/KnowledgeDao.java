@@ -13,7 +13,7 @@ public interface KnowledgeDao {
 
 	public int deleteKnowledge(int id);
 
-	public int batchDeleteKnowledge(int id);
+	public int batchDeleteKnowledge(List<Integer> ids);
 
 	public int changeKnowledge(int id, Knowledge knowledge);
 }

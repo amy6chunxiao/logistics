@@ -13,7 +13,7 @@ public interface KnowledgeService {
 
 	public boolean deleteKnowledge(int id);
 
-	public boolean batchDeleteKnowledge(int id);
+	public boolean batchDeleteKnowledge(List<Integer> ids);
 
 	public boolean changeKnowledge(int id, Knowledge knowledge);
 }

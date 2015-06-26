@@ -3,7 +3,7 @@
 
 <mapper namespace="com.cqupt.business.dao.KnowledgeDao">
 
-	<resultMap type="com.cqupt.business.model.Knowledge" id="knowledgerMap">
+	<resultMap type="com.cqupt.business.model.Knowledge" id="knowledgeMap">
 		<id column="ID" jdbcType="INTEGER" property="id" />
 		<result column="Title" jdbcType="VARCHAR" property="title" />
 		<result column="Content" jdbcType="VARCHAR" property="content" />

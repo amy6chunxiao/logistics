@@ -23,16 +23,16 @@
 </head>
 
 <body>
-	<form action="carMessage/add.action" method="post">
+	<form action="user/login.action" method="post">
 		<h1>登 录</h1>
 		<p>
 			<label for="username" class="uname" data-icon="u"> 用户名 ：</label> <input
-				id="username" name="username" required="required" type="text"
+				id="username" name="user-name" required="required" type="text"
 				placeholder="请输入用户名" />
 		</p>
 		<p>
 			<label for="password" class="youpasswd" data-icon="p"> 密 码 ：</label>
-			<input id="password" name="password" required="required"
+			<input id="password" name="pass-word" required="required"
 				type="password" placeholder="请输入密码" />
 		</p>
 		<p>

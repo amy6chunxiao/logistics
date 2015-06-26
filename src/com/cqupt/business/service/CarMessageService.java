@@ -13,7 +13,7 @@ public interface CarMessageService {
 
 	public boolean deleteCarMessage(int id);
 
-	public boolean batchDeleteCarMessage(int id);
+	public boolean batchDeleteCarMessage(List<Integer> ids);
 
 	public boolean changeCarMessage(int id, CarMessage carMessage);
 }

@@ -13,7 +13,7 @@ public interface CarMessageDao {
 
 	public int deleteCarMessage(int id);
 
-	public int batchDeleteCarMessage(int id);
+	public int batchDeleteCarMessage(List<Integer> ids);
 
 	public int changeCarMessage(int id, CarMessage carMessage);
 }
