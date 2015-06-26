@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="cn.cqupt.business.dao.AlgorithmDao">
+<mapper namespace="com.cqupt.business.dao.EnterpriseDao">
+
+	<resultMap type="com.cqupt.business.model.Enterprise" id="enterpriseMap">
+		<id column="ID" jdbcType="INTEGER" property="id" />
+		<result column="EnterpriseSort" jdbcType="VARCHAR" property="enterpriseSort" />
+		<result column="EnterpriseName" jdbcType="VARCHAR" property="enterpriseName" />
+		<result column="Operation" jdbcType="VARCHAR" property="operation" />
+		<result column="WorkArea" jdbcType="VARCHAR" property="workArea" />
+		<result column="Address" jdbcType="VARCHAR" property="address" />
+		<result column="Phone" jdbcType="VARCHAR" property="phone" />
+		<result column="LinkMain" jdbcType="VARCHAR" property="linkMain" />
+		<result column="HandSet" jdbcType="VARCHAR" property="handSet" />
+		<result column="Fax" jdbcType="VARCHAR" property="fax" />
+		<result column="Email" jdbcType="VARCHAR" property="email" />
+		<result column="Http" jdbcType="VARCHAR" property="http" />
+		<result column="Intro" jdbcType="VARCHAR" property="intro" />
+		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+		<result column="UserName" jdbcType="VARCHAR" property="username" />
+	</resultMap>
+
+	<select id="findAllEnterprise" resultMap="enterpriseMap">
+		select * from
+		tb_enterprise
+	</select>
+	<select id="findEnterpriseById" resultMap="enterpriseMap"
+		parameterType="int">
+		select * from
+		tb_enterprise where ID=#{id}
+	</select>
+
+	<insert id="addEnterprise" parameterType="com.cqupt.business.model.Enterprise">
+		insert into
+		tb_enterprise
+		(ID,EnterpriseSort,EnterpriseName,Operation,WorkArea,Address,Phone,LinkMain,
+		HandSet,Fax,Email,Http,Intro,IssueDate,UserName)
+		values(#{id},#{enterpriseSort},#{enterpriseName},#{operation},#{workarea},#{address},#{phone},
+		#{linkMain},#{handSet},#{fax},#{email},#{http},#{intro},#{issueDate},#{username})
+	</insert>
+
+	<delete id="deleteEnterprise" parameterType="int">
+		delete from
+		tb_enterprise where ID=#{id}
+	</delete>
+
+	<delete id="batchDeleteEnterprise" parameterType="java.util.List">
+		delete from tb_enterprise where ID in(
+		<foreach collection="list" item="item" separator=",">
+			#{item}
+		</foreach>
+		)
+	</delete>
 </mapper>

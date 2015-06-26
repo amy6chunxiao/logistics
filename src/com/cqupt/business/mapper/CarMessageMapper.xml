@@ -32,19 +32,23 @@
 		tb_carmessage where Code=#{id}
 	</select>
 
-<!-- 	<insert id="addCarMessage" parameterMap="com.cqupt.business.model.CarMessage">
+	<insert id="addCarMessage" parameterType="com.cqupt.business.model.CarMessage">
 		insert into
-		tb_carmessage(Code,TradeMark,Drand,Style,CarLoad,UsedTime,DriverName,DriverTime,
-		LicenceNumber,LicenceStyle,TranspotStyle,LinkMain,LinkPhone,Remark,IssueDate,UserName)
-		values(#{carMessage.code},#{carMessage.tradeMark},#{carMessage.drand},#{carMessage.style},#{carMessage.carLoad},#{carMessage.usedTime},#{carMessage.driverTime},#{carMessage.licenceNumber},#{carMessage.licenceStyle},#{},#{})
-	</insert> -->
+		tb_carmessage
+		(Code,TradeMark,Drand,Style,CarLoad,UsedTime,DriverName,DriverTime,
+		LicenceNumber,LicenceStyle,TranspotStyle,LinkMain,LinkPhone,Remark,
+		IssueDate,UserName)
+		values(#{code},#{tradeMark},#{drand},#{style},#{carLoad},#{usedTime},#{driverName},
+		#{driverTime},#{licenceNumber},#{licenceStyle},#{transpotStyle},#{linkMain},
+		#{linkPhone},#{remark},#{issueDate},#{username})
+	</insert>
 
-	<delete id="deleteCarMessageById" parameterType="int">
+	<delete id="deleteCarMessage" parameterType="int">
 		delete from
 		tb_carmessage where Code=#{id}
 	</delete>
 
-	<delete id="deleteCarMessageByIds" parameterType="java.util.List">
+	<delete id="batchDeleteCarMessage" parameterType="java.util.List">
 		delete from tb_carmessage where id in(
 		<foreach collection="list" item="item" separator=",">
 			#{item}

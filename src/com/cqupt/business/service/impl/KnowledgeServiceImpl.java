@@ -15,8 +15,8 @@ public class KnowledgeServiceImpl implements KnowledgeService {
 
 	@Resource
 	private KnowledgeDao knowledgeDao;
-	
-	@Resource(name="knowledgeDao")
+
+	@Resource(name = "knowledgeDao")
 	public void setKnowledgeDao(KnowledgeDao knowledgeDao) {
 		this.knowledgeDao = knowledgeDao;
 	}
@@ -33,22 +33,22 @@ public class KnowledgeServiceImpl implements KnowledgeService {
 
 	@Override
 	public boolean addKnowledge(Knowledge knowledge) {
-		return knowledgeDao.addKnowledge(knowledge);
+		return knowledgeDao.addKnowledge(knowledge) != 0;
 	}
 
 	@Override
 	public boolean deleteKnowledge(int id) {
-		return knowledgeDao.deleteKnowledge(id);
+		return knowledgeDao.deleteKnowledge(id) != 0;
 	}
 
 	@Override
 	public boolean batchDeleteKnowledge(int id) {
-		return knowledgeDao.batchDeleteKnowledge(id);
+		return knowledgeDao.batchDeleteKnowledge(id) != 0;
 	}
 
 	@Override
 	public boolean changeKnowledge(int id, Knowledge knowledge) {
-		return knowledgeDao.changeKnowledge(id, knowledge);
+		return knowledgeDao.changeKnowledge(id, knowledge) != 0;
 	}
 
 }

@@ -8,11 +8,11 @@ public interface GoodsMessageDao {
 
 	public GoodsMessage findGoodsMessageById(int id);
 
-	public boolean addGoodsMessage(GoodsMessage goodsMessage);
+	public int addGoodsMessage(GoodsMessage goodsMessage);
 
-	public boolean deleteGoodsMessage(int id);
+	public int deleteGoodsMessage(int id);
 
-	public boolean batchDeleteGoodsMessage(int id);
+	public int batchDeleteGoodsMessage(int id);
 
-	public boolean changeGoodsMessage(int id, GoodsMessage goodsMessage);
+	public int changeGoodsMessage(int id, GoodsMessage goodsMessage);
 }

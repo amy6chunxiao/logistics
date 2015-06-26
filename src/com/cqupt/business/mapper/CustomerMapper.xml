@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="customerDao">
+<mapper namespace="com.cqupt.business.dao.CustomerDao">
 
+	<resultMap type="com.cqupt.business.model.Customer" id="customerMap">
+		<id column="ID" jdbcType="INTEGER" property="id" />
+		<result column="Name" jdbcType="VARCHAR" property="name" />
+		<result column="Password" jdbcType="VARCHAR" property="password" />
+		<result column="Pow" jdbcType="CHAR" property="pow" />
+		<result column="Email" jdbcType="VARCHAR" property="email" />
+		<result column="Sex" jdbcType="VARCHAR" property="sex" />
+		<result column="Phone" jdbcType="VARCHAR" property="phone" />
+		<result column="Question" jdbcType="VARCHAR" property="question" />
+		<result column="Result" jdbcType="VARCHAR" property="result" />
+		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+	</resultMap>
+
+	<select id="findAllCustomer" resultMap="customerMap">
+		select * from
+		tb_customar
+	</select>
+	<select id="findCustomerById" resultMap="customerMap"
+		parameterType="int">
+		select * from
+		tb_customar where ID=#{id}
+	</select>
+
+	<insert id="addCustomer" parameterType="com.cqupt.business.model.Customer">
+		insert into
+		tb_customar
+		(ID,Name,Password,Pow,Email,Sex,Phone,Question,
+		Result,IssueDate)
+		values(#{id},#{name},#{password},#{pow},#{email},#{sex},#{phone},
+		#{question},#{result},#{issueDate})
+	</insert>
+
+	<delete id="deleteCustomer" parameterType="int">
+		delete from
+		tb_customar where ID=#{id}
+	</delete>
+
+	<delete id="batchDeleteCustomer" parameterType="java.util.List">
+		delete from tb_customar where ID in(
+		<foreach collection="list" item="item" separator=",">
+			#{item}
+		</foreach>
+		)
+	</delete>
 </mapper>

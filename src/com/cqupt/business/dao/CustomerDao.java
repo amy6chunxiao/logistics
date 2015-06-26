@@ -9,11 +9,11 @@ public interface CustomerDao {
 
 	public Customer findCustomerById(int id);
 	
-	public boolean addCustomer(Customer customer);
+	public int addCustomer(Customer customer);
 
-	public boolean deleteCustomer(int id);
+	public int deleteCustomer(int id);
 
-	public boolean batchDeleteCustomer(int id);
+	public int batchDeleteCustomer(int id);
 
-	public boolean changeCustomer(int id, Customer customer);
+	public int changeCustomer(int id, Customer customer);
 }

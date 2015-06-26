@@ -33,22 +33,22 @@ public class GoodsMessageServiceImpl implements GoodsMessageService {
 
 	@Override
 	public boolean addGoodsMessage(GoodsMessage goodsMessage) {
-		return goodsMessageDao.addGoodsMessage(goodsMessage);
+		return goodsMessageDao.addGoodsMessage(goodsMessage)!=0;
 	}
 
 	@Override
 	public boolean deleteGoodsMessage(int id) {
-		return goodsMessageDao.deleteGoodsMessage(id);
+		return goodsMessageDao.deleteGoodsMessage(id)!=0;
 	}
 
 	@Override
 	public boolean batchDeleteGoodsMessage(int id) {
-		return goodsMessageDao.batchDeleteGoodsMessage(id);
+		return goodsMessageDao.batchDeleteGoodsMessage(id)!=0;
 	}
 
 	@Override
 	public boolean changeGoodsMessage(int id, GoodsMessage goodsMessage) {
-		return goodsMessageDao.changeGoodsMessage(id, goodsMessage);
+		return goodsMessageDao.changeGoodsMessage(id, goodsMessage)!=0;
 	}
 
 }

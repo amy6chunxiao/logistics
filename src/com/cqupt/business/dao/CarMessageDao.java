@@ -9,11 +9,11 @@ public interface CarMessageDao {
 
 	public CarMessage findCarMessageById(int id);
 
-	public boolean addCarMessage(CarMessage carMessage);
+	public int addCarMessage(CarMessage carMessage);
 
-	public boolean deleteCarMessage(int id);
+	public int deleteCarMessage(int id);
 
-	public boolean batchDeleteCarMessage(int id);
+	public int batchDeleteCarMessage(int id);
 
-	public boolean changeCarMessage(int id, CarMessage carMessage);
+	public int changeCarMessage(int id, CarMessage carMessage);
 }

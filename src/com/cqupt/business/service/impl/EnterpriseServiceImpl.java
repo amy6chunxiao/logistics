@@ -34,22 +34,22 @@ public class EnterpriseServiceImpl implements EnterpriseService {
 
 	@Override
 	public boolean addEnterprise(Enterprise enterprise) {
-		return enterpriseDao.addEnterprise(enterprise);
+		return enterpriseDao.addEnterprise(enterprise)!=0;
 	}
 
 	@Override
 	public boolean deleteEnterprise(int id) {
-		return enterpriseDao.deleteEnterprise(id);
+		return enterpriseDao.deleteEnterprise(id)!=0;
 	}
 
 	@Override
 	public boolean batchDeleteEnterprise(int id) {
-		return enterpriseDao.batchDeleteEnterprise(id);
+		return enterpriseDao.batchDeleteEnterprise(id)!=0;
 	}
 
 	@Override
 	public boolean changeEnterprise(int id, Enterprise enterprise) {
-		return enterpriseDao.changeEnterprise(id, enterprise);
+		return enterpriseDao.changeEnterprise(id, enterprise)!=0;
 	}
 
 }

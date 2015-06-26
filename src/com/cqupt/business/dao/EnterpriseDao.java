@@ -10,11 +10,11 @@ public interface EnterpriseDao {
 
 	public CarMessage findEnterpriseById(int id);
 
-	public boolean addEnterprise(Enterprise enterprise);
+	public int addEnterprise(Enterprise enterprise);
 
-	public boolean deleteEnterprise(int id);
+	public int deleteEnterprise(int id);
 
-	public boolean batchDeleteEnterprise(int id);
+	public int batchDeleteEnterprise(int id);
 
-	public boolean changeEnterprise(int id, Enterprise enterprise);
+	public int changeEnterprise(int id, Enterprise enterprise);
 }

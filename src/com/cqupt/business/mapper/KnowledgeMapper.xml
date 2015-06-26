@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="cn.cqupt.business.dao.AlgorithmDao">
+<mapper namespace="com.cqupt.business.dao.KnowledgeDao">
 
+	<resultMap type="com.cqupt.business.model.Knowledge" id="knowledgerMap">
+		<id column="ID" jdbcType="INTEGER" property="id" />
+		<result column="Title" jdbcType="VARCHAR" property="title" />
+		<result column="Content" jdbcType="VARCHAR" property="content" />
+		<result column="Author" jdbcType="VARCHAR" property="author" />
+		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+	</resultMap>
+
+	<select id="findAllKnowledge" resultMap="knowledgeMap">
+		select * from
+		tb_knowledge
+	</select>
+	<select id="findKnowledgeById" resultMap="knowledgeMap"
+		parameterType="int">
+		select * from
+		tb_knowledge where ID=#{id}
+	</select>
+
+	<insert id="addKnowledge" parameterType="com.cqupt.business.model.Knowledge">
+		insert into
+		tb_knowledge
+		(ID,Title,Content,Author,IssueDate)
+		values(#{id},#{title},#{content},#{author},#{issueDate})
+	</insert>
+
+	<delete id="deleteKnowledge" parameterType="int">
+		delete from
+		tb_knowledge where ID=#{id}
+	</delete>
+
+	<delete id="batchDeleteKnowledge" parameterType="java.util.List">
+		delete from tb_knowledge where ID in(
+		<foreach collection="list" item="item" separator=",">
+			#{item}
+		</foreach>
+		)
+	</delete>
 </mapper>

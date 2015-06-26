@@ -32,22 +32,22 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public boolean addCustomer(Customer customer) {
-		return customerDao.addCustomer(customer);
+		return customerDao.addCustomer(customer)!=0;
 	}
 
 	@Override
 	public boolean deleteCustomer(int id) {
-		return customerDao.deleteCustomer(id);
+		return customerDao.deleteCustomer(id)!=0;
 	}
 
 	@Override
 	public boolean batchDeleteCustomer(int id) {
-		return customerDao.batchDeleteCustomer(id);
+		return customerDao.batchDeleteCustomer(id)!=0;
 	}
 
 	@Override
 	public boolean changeCustomer(int id, Customer customer) {
-		return customerDao.changeCustomer(id, customer);
+		return customerDao.changeCustomer(id, customer)!=0;
 	}
 
 }

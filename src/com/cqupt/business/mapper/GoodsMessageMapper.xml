@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="cn.cqupt.business.dao.AlgorithmDao">
-	
+<mapper namespace="com.cqupt.business.dao.GoodsMessageDao">
+
+	<resultMap type="com.cqupt.business.model.GoodsMessage" id="goodsMessageMap">
+		<id column="ID" jdbcType="INTEGER" property="id" />
+		<result column="GoodsStyle" jdbcType="VARCHAR" property="goodsStyle" />
+		<result column="GoodsName" jdbcType="VARCHAR" property="goodsName" />
+		<result column="GoodsNumber" jdbcType="VARCHAR" property="goodsNumber" />
+		<result column="GoodsUnit" jdbcType="VARCHAR" property="goodsUnit" />
+		<result column="StarProvince" jdbcType="VARCHAR" property="starProvince" />
+		<result column="StarCity" jdbcType="VARCHAR" property="starCity" />
+		<result column="EndProvince" jdbcType="VARCHAR" property="endProvince" />
+		<result column="EndCity" jdbcType="VARCHAR" property="endCity" />
+		<result column="Style" jdbcType="VARCHAR" property="style" />
+		<result column="TransportTime" jdbcType="VARCHAR" property="transportTime" />
+		<result column="Phone" jdbcType="VARCHAR" property="phone" />
+		<result column="Link" jdbcType="VARCHAR" property="link" />
+		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+		<result column="Remark" jdbcType="VARCHAR" property="remark" />
+		<result column="Request" jdbcType="VARCHAR" property="request" />
+		<result column="UserName" jdbcType="VARCHAR" property="username" />
+	</resultMap>
+
+	<select id="findAllGoodsMessage" resultMap="goodsMessageMap">
+		select * from
+		tb_goodsmeg
+	</select>
+	<select id="findGoodsMessageById" resultMap="goodsMessageMap"
+		parameterType="int">
+		select * from
+		tb_goodsmeg where ID=#{id}
+	</select>
+
+	<insert id="addGoodsMessage" parameterType="com.cqupt.business.model.GoodsMessage">
+		insert into
+		tb_goodsmeg
+		(ID,GoodsStyle,GoodsName,GoodsNumber,GoodsUnit,StarProvince,StarCity,EndProvince,
+		EndCity,Style,TransportTime,Phone,Link,IssueDate,Remark,Request,UserName)
+		values(#{id},#{goodsStyle},#{goodsName},#{goodsNumber},#{goodsUnit},#{starProvince},#{starCity},
+		#{endProvince},#{endCity},#{style},#{transportTime},#{phone},#{link},#{issueDate},#{remark},
+		#{request},#{username})
+	</insert>
+
+	<delete id="deleteGoodsMessage" parameterType="int">
+		delete from
+		tb_goodsmeg where ID=#{id}
+	</delete>
+
+	<delete id="batchDeleteGoodsMessage" parameterType="java.util.List">
+		delete from tb_goodsmeg where ID in(
+		<foreach collection="list" item="item" separator=",">
+			#{item}
+		</foreach>
+		)
+	</delete>
 </mapper>

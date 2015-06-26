@@ -1,4 +1,4 @@
-package com.cqupt.business.servlet;
+package com.cqupt.business.control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
