@@ -17,7 +17,7 @@
 		<result column="Email" jdbcType="VARCHAR" property="email" />
 		<result column="Http" jdbcType="VARCHAR" property="http" />
 		<result column="Intro" jdbcType="VARCHAR" property="intro" />
-		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+		<result column="IssueDate" jdbcType="VARCHAR" property="issueDate" />
 		<result column="UserName" jdbcType="VARCHAR" property="username" />
 	</resultMap>
 

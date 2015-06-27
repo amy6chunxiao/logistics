@@ -16,7 +16,7 @@ public class GoodsMessage {
 	private String transportTime;
 	private String phone;
 	private String link;
-	private Date issueDate;
+	private String issueDate;
 	private String remark;
 	private String request;
 	private String userName;
@@ -125,11 +125,11 @@ public class GoodsMessage {
 		this.link = link;
 	}
 
-	public Date getIssueDate() {
+	public String getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(Date issueDate) {
+	public void setIssueDate(String issueDate) {
 		this.issueDate = issueDate;
 	}
 

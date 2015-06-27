@@ -33,7 +33,7 @@ public class CustomerController {
 
 	@RequestMapping("/delete")
 	public void deleteUser() {
-		
+
 	}
 
 	@RequestMapping("/login")
@@ -44,6 +44,7 @@ public class CustomerController {
 		if (customer != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", name);
+			session.setAttribute("pow", customer.getPow());
 		}
 		return "/index.jsp";
 	}

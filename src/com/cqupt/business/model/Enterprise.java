@@ -16,7 +16,7 @@ public class Enterprise {
 	private String email;
 	private String http;
 	private String intro;
-	private Date issueDate;
+	private String issueDate;
 	private String userName;
 
 	public int getId() {
@@ -123,11 +123,11 @@ public class Enterprise {
 		this.intro = intro;
 	}
 
-	public Date getIssueDate() {
+	public String getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(Date issueDate) {
+	public void setIssueDate(String issueDate) {
 		this.issueDate = issueDate;
 	}
 

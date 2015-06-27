@@ -1,7 +1,5 @@
 package com.cqupt.business.model;
 
-import java.util.Date;
-
 public class Customer {
 	private int id;
 	private String name;
@@ -12,7 +10,7 @@ public class Customer {
 	private String phone;
 	private String question;
 	private String result;
-	private Date issueDate;
+	private String issueDate;
 
 	public int getId() {
 		return id;
@@ -86,11 +84,11 @@ public class Customer {
 		this.result = result;
 	}
 
-	public Date getIssueDate() {
+	public String getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(Date issueDate) {
+	public void setIssueDate(String issueDate) {
 		this.issueDate = issueDate;
 	}
 

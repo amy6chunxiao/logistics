@@ -17,7 +17,7 @@
 		<result column="TransportTime" jdbcType="VARCHAR" property="transportTime" />
 		<result column="Phone" jdbcType="VARCHAR" property="phone" />
 		<result column="Link" jdbcType="VARCHAR" property="link" />
-		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+		<result column="IssueDate" jdbcType="VARCHAR" property="issueDate" />
 		<result column="Remark" jdbcType="VARCHAR" property="remark" />
 		<result column="Request" jdbcType="VARCHAR" property="request" />
 		<result column="UserName" jdbcType="VARCHAR" property="username" />

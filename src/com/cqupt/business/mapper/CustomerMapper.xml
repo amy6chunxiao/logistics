@@ -13,7 +13,7 @@
 		<result column="Phone" jdbcType="VARCHAR" property="phone" />
 		<result column="Question" jdbcType="VARCHAR" property="question" />
 		<result column="Result" jdbcType="VARCHAR" property="result" />
-		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+		<result column="IssueDate" jdbcType="VARCHAR" property="issueDate" />
 	</resultMap>
 
 	<select id="checkCustomer" resultMap="customerMap">

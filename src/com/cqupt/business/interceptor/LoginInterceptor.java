@@ -11,6 +11,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 
+		System.out.println("登录拦截器");
 		String url = request.getRequestURI();
 		String urlName = url.substring(url.lastIndexOf("/") + 1);
 		if (urlName.equals("login.action") || urlName.equals("login.jsp")
@@ -19,11 +20,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		}
 		Customer customer = (Customer) request.getSession()
 				.getAttribute("user");
-		if (customer != null) {
-			request.getRequestDispatcher("/login.jsp").forward(request,
-					response);
+		if (customer == null) {
+			System.out.println("未登录");
+			response.sendRedirect("/login.jsp");
 			return false;
-		}
-		return true;
+		} else
+			return true;
 	}
 }

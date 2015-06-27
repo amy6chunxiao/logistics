@@ -16,18 +16,22 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+	</bean>
 	<mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
 	</mvc:interceptors>
 
 	<!-- 以下配置将拦截特有的URL请求 -->
 	<mvc:interceptors>
+		<!-- <mvc:interceptor> <mvc:mapping path="/**" /> <bean class="com.cqupt.business.interceptor.LoginInterceptor" 
+			/> </mvc:interceptor> -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="com.cqupt.business.interceptor.LoginInterceptor" />
-		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/*" />
 			<bean class="com.cqupt.business.interceptor.PrivilegeInterceptor" />
 		</mvc:interceptor>
 

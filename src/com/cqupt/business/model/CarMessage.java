@@ -1,7 +1,5 @@
 package com.cqupt.business.model;
 
-import java.util.Date;
-
 public class CarMessage {
 
 	private int code;
@@ -18,7 +16,7 @@ public class CarMessage {
 	private String linkMain;
 	private String linkPhone;
 	private String remark;
-	private Date issueDate;
+	private String issueDate;
 	private String username;
 
 	public int getCode() {
@@ -133,11 +131,11 @@ public class CarMessage {
 		this.remark = remark;
 	}
 
-	public Date getIssueDate() {
+	public String getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(Date issueDate) {
+	public void setIssueDate(String issueDate) {
 		this.issueDate = issueDate;
 	}
 

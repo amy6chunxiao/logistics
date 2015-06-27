@@ -8,11 +8,12 @@
 		<result column="Title" jdbcType="VARCHAR" property="title" />
 		<result column="Content" jdbcType="VARCHAR" property="content" />
 		<result column="Author" jdbcType="VARCHAR" property="author" />
-		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+		<result column="IssueDate" jdbcType="VARCHAR" property="issueDate" />
 	</resultMap>
 
 	<select id="findAllKnowledge" resultMap="knowledgeMap">
-		select * from
+		select
+		ID,Title,Content,Author,IssueDate from
 		tb_knowledge
 	</select>
 	<select id="findKnowledgeById" resultMap="knowledgeMap"

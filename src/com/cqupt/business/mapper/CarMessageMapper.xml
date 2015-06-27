@@ -18,7 +18,7 @@
 		<result column="LinkMain" jdbcType="VARCHAR" property="linkMain" />
 		<result column="LinkPhone" jdbcType="VARCHAR" property="linkPhone" />
 		<result column="Remark" jdbcType="VARCHAR" property="linkPhone" />
-		<result column="IssueDate" jdbcType="DATE" property="issueDate" />
+		<result column="IssueDate" jdbcType="VARCHAR" property="issueDate" />
 		<result column="UserName" jdbcType="VARCHAR" property="username" />
 	</resultMap>
 
