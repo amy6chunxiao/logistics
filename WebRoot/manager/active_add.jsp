@@ -35,15 +35,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="form-group">
                 <label for="active-author">作者：</label>
-                <textarea type="text" class="form-control" id="active-author" name="active-author" placeholder="作者.."></textarea>
+                <input type="text" class="form-control" id="active-author" name="active-author" placeholder="作者..">
+            </div>
+
+            <div class="form-btns">
+                <button class="btn btn-success" type="submit">发布</button>
+                <button class="btn btn-default" type="reset">重置</button>
+                <a href="./manager/active_select.jsp">返回</a>
             </div>
         </form>
-        
-        <div class="form-btns">
-            <button class="btn btn-success" type="subsmit">发布</button>
-            <button class="btn btn-default" type="reset">重置</button>
-            <a href="./manager/active_select.jsp">返回</a>
-        </div>
     </div>
     
     <%@ include file="../tpl/footer.jsp"%>

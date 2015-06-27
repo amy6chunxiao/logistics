@@ -1,0 +1,12 @@
+$(function(){
+	$.ajax({
+		type:'get',
+		dataType:'json',
+		url:'./logisticDynamic/getById.action?'+window.location.search.substring(1)
+	}).success(function(res){
+		$('#active-id').val(res['id']);
+		$('#active-author').val(res['author']);
+		$('#active-topic').val(res['title']);
+		$('#active-cont').html(res['content']);
+	})
+})

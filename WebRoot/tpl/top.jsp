@@ -22,7 +22,7 @@
                 <li><a href="./car_select.jsp">车辆信息</a></li>
                 <li><a href="javascript:">企业信息</a></li>
                 <li><a href="javascript:">辅助工具</a></li>
-                <li><a href="./manager/index.jsp">后台管理</a></li>
+                <li><a href="./manager/back_index.jsp">后台管理</a></li>
 
             </ul>
         </div>

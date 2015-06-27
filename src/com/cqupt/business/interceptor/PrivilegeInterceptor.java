@@ -18,16 +18,16 @@ public class PrivilegeInterceptor extends HandlerInterceptorAdapter {
 		FireAuthority fireAuthority = handlerMethod
 				.getMethodAnnotation(FireAuthority.class);
 
-		System.out.println("进入权限拦截器");
 		if (null == fireAuthority) {
 			return true;
 		}
 		HttpSession session = request.getSession();
 		char pow = (Character) session.getAttribute("pow");
-		if (pow >= fireAuthority.authorityType().getType()){
+		if (pow >= fireAuthority.authorityType().getType()) {
 			return true;
-		}
-		else {
+		} else {
+			System.out.println("权限不够");
+			response.sendRedirect("../login.jsp");
 			return false;
 		}
 	}

@@ -27,13 +27,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
                     <td>ID</td>
                     <td>标题</td>
-                    <td>作者</td>
                     <td>发布日期</td>
+                    <td>作者</td>
                     <td>操作</td>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <td>12</td>
                     <td>dss</td>
                     <td>asdf</td>
@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <td>asdf</td>
                     <td>2-2</td>
                     <td><a href="./manager/active_show.jsp">修改</a> | <a href="javascript:">删除</a></td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <div class="table-footer">
@@ -78,6 +78,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <script src="ref/jquery-1.10.2.min.js"></script>
     <script src="ref/bootstrap.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/manager/active_select.js"></script>
 </body>
 </html>

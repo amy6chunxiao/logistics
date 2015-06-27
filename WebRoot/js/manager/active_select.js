@@ -11,7 +11,7 @@ $(function(){
         for( ; i<len ; i++){
             var tr = document.createElement('tr'),
                 opTd = document.createElement('td'),
-                id = '';
+                id='';
 
             for(var j in res[i]){
                 if(j === 'content') continue;
@@ -21,7 +21,7 @@ $(function(){
                 tr.appendChild(td);
             }
 
-            opTd.innerHTML = '<a href="./active_show.jsp?id='+id+'">详细</a>';
+            opTd.innerHTML = '<a href="./manager/active_show.jsp?id='+id+'">修改</a> | <a href="./logisticDynamic/delete.action?id='+id+'">删除</a>';
             tr.appendChild(opTd);
             fragment.appendChild(tr);
         }

@@ -41,4 +41,10 @@
 		</foreach>
 		)
 	</delete>
+	<update id="changeKnowledge">
+		update tb_knowledge set
+		ID=#{1.id},Title=#{1.title},Content=#{1.content},Author=#{1.author},
+		IssueDate=#{1.issueDate}
+		where ID=#{0}
+	</update>
 </mapper>

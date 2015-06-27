@@ -23,17 +23,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h2 class="section-topic">用户登录</h2>
 
         <div class="form-group">
-            <label for="user-name">请输入用户名：</label>
+            <label class="control-label" for="user-name">请输入用户名：</label>
             <input type="text" class="form-control" id="user-name" name="user-name" placeholder="用户名">
         </div>
 
         <div class="form-group">
-            <label for="user-password">请输入密码：</label>
+            <label class="control-label" for="user-password">请输入密码：</label>
             <input type="password" class="form-control" id="user-password" name="user-password" placeholder="密码">
         </div>
 
-        <button class="btn btn-success" type="submit">登录</button>
-        <a href="javascript:" class="btn btn-default" role="btn">注册</a>
+        <button id="log-btn" class="btn btn-success" type="submit">登录</button>
+        <a href="./register.jsp" class="btn btn-default" role="btn">注册</a>
         <a href="javascript:" class="find-password">忘记密码？</a>
     </form>
 

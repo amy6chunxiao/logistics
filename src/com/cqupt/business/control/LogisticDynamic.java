@@ -45,11 +45,16 @@ public class LogisticDynamic {
 
 	@FireAuthority(authorityType = AuthorityType.AUTHORITY_SIMPLE)
 	@RequestMapping(value = "/getById")
-	public String findKnowledgeById(HttpServletRequest request) {
+	public void findKnowledgeById(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
 		String id = request.getParameter("id");
 		Knowledge knowledge = knowledgeService.findKnowledgeById(Integer
 				.parseInt(id));
-		return null;
+		String str = JSON.toJSONString(knowledge);
+		response.setContentType("application/json;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.write(str);
+		out.close();
 	}
 
 	@FireAuthority(authorityType = AuthorityType.AUTHORITY_SYSTEM)
@@ -72,9 +77,10 @@ public class LogisticDynamic {
 
 	@FireAuthority(authorityType = AuthorityType.AUTHORITY_SYSTEM)
 	@RequestMapping(value = "delete")
-	public void deleteKnowledge(HttpServletRequest request) {
+	public String deleteKnowledge(HttpServletRequest request) {
 		String id = request.getParameter("id");
 		knowledgeService.deleteKnowledge(Integer.parseInt(id));
+		return "/manager/active_select.jsp";
 	}
 
 	@FireAuthority(authorityType = AuthorityType.AUTHORITY_SYSTEM)
@@ -89,9 +95,9 @@ public class LogisticDynamic {
 	}
 
 	@FireAuthority(authorityType = AuthorityType.AUTHORITY_SYSTEM)
-	@RequestMapping(value = "update")
+	@RequestMapping(value = "/update")
 	public String changeKnowledge(HttpServletRequest request) {
-		String id = request.getParameter("id");
+		String id = request.getParameter("active-id");
 		String title = request.getParameter("active-topic");
 		String content = request.getParameter("active-cont");
 		String author = request.getParameter("active-author");

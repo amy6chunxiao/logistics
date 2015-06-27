@@ -28,8 +28,6 @@
 
 	<!-- 以下配置将拦截特有的URL请求 -->
 	<mvc:interceptors>
-		<!-- <mvc:interceptor> <mvc:mapping path="/**" /> <bean class="com.cqupt.business.interceptor.LoginInterceptor" 
-			/> </mvc:interceptor> -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<bean class="com.cqupt.business.interceptor.PrivilegeInterceptor" />
